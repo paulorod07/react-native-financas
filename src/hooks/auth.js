@@ -38,7 +38,7 @@ const AuthProvider = ({children}) => {
             .then((snapshot) => {
               let data = {
                 uid,
-                name: snapshot.val().nome,
+                name: snapshot.val().name,
                 email: value.user.email,
               };
 

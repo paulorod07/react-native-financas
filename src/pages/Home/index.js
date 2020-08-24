@@ -7,7 +7,6 @@ import {AuthContext} from '../../hooks/auth';
 
 const Home = () => {
   const {user, signOut} = useContext(AuthContext);
-  // console.log(user);
 
   return (
     <View>
@@ -18,8 +17,7 @@ const Home = () => {
       <Button
         title="Sair"
         onPress={() => {
-          // signOut();
-          console.log(user);
+          signOut();
         }}
       />
     </View>
