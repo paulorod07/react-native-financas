@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useCallback} from 'react';
 import {Platform} from 'react-native';
 
 import logo from '../../assets/Logo.png';
+import {AuthContext} from '../../hooks/auth';
 
 import {
   Container,
@@ -17,6 +18,12 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+
+  const {signUp} = useContext(AuthContext);
+
+  const handleSignUp = useCallback(() => {
+    signUp(name, email, password);
+  }, [name, email, password, signUp]);
 
   return (
     <Container>
@@ -56,7 +63,7 @@ const SignUp = () => {
           />
         </AreaInput>
 
-        <SubmitButton>
+        <SubmitButton onPress={handleSignUp}>
           <SubmitButtonText>Cadastrar</SubmitButtonText>
         </SubmitButton>
       </Content>

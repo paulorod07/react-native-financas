@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useCallback} from 'react';
 import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import logo from '../../assets/Logo.png';
+import {AuthContext} from '../../hooks/auth';
 
 import {
   Container,
@@ -20,7 +21,13 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const {user} = useContext(AuthContext);
+
   const navigation = useNavigation();
+
+  const handleSignIn = useCallback(() => {
+    console.log('la');
+  }, []);
 
   return (
     <Container>
@@ -50,7 +57,7 @@ const SignIn = () => {
           />
         </AreaInput>
 
-        <SubmitButton>
+        <SubmitButton onPress={handleSignIn}>
           <SubmitButtonText>Acessar</SubmitButtonText>
         </SubmitButton>
 
