@@ -66,12 +66,12 @@ const AuthProvider = ({children}) => {
             .child(uid)
             .set({
               balance: 0,
-              name: name,
+              name,
             })
             .then(() => {
               let data = {
                 uid,
-                name: name,
+                name,
                 email: value.user.email,
               };
 
