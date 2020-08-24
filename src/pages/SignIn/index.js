@@ -21,13 +21,13 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const {user} = useContext(AuthContext);
+  const {signIn} = useContext(AuthContext);
 
   const navigation = useNavigation();
 
   const handleSignIn = useCallback(() => {
-    console.log('la');
-  }, []);
+    signIn(email, password);
+  }, [signIn, email, password]);
 
   return (
     <Container>
